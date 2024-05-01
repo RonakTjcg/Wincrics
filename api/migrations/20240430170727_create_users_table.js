@@ -11,15 +11,6 @@ exports.up = function(knex) {
     table.string('password');
   });
 };
-exports.up = function(knex) {
-  return knex.schema.createTable('admin', function(table) {
-    table.increments('id').primary();
-    table.string('email').unique().notNullable();
-    table.string('mobile').unique().notNullable();
-    table.string('password').notNullable();
-    table.enum('role', ['admin', 'marketing']).notNullable();
-  });
-};
 
 /**
  * @param { import("knex").Knex } knex
