@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+RUN npm i -g knex
 
 # Copy the rest of the application code to the working directory
 COPY . .
