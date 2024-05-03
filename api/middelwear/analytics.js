@@ -1,7 +1,8 @@
-function logAnalytics(req, res, next) {
+const pool = require('../db/db'); // Update the path as needed
+
+async function logAnalytics(req, res, next) {
   const now = new Date();
   const analyticsData = {
-    body: req.body,
     url: req.originalUrl,
     method: req.method,
     headers: req.headers,
@@ -10,12 +11,18 @@ function logAnalytics(req, res, next) {
     ip: req.ip,
     protocol: req.protocol,
     path: req.path,
-    time: now.toLocaleTimeString(), // Get current time
-    date: now.toLocaleDateString(), // Get current date
+    time: now.toLocaleTimeString(),
+    date: now.toLocaleDateString(),
   };
 
-  // Print analytics data to console
-  console.log('Analytics Data:', analyticsData);
+  try {
+    // Insert analytics data into PostgreSQL database
+    const query = 'INSERT INTO analytics (url, method, headers, query, params, ip, protocol, path, time, date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
+    const values = [analyticsData.url, analyticsData.method, analyticsData.headers, analyticsData.query, analyticsData.params, analyticsData.ip, analyticsData.protocol, analyticsData.path, analyticsData.time, analyticsData.date];
+    await pool.query(query, values);
+  } catch (err) {
+    console.error('Error saving analytics data:', err);
+  }
 
   next();
 }

@@ -1,8 +1,9 @@
 const express = require('express');
 const UserController = require('../controller/userscontroller');
+const { logAnalytics } = require('../middelwear/analytics')
 
 const usersroute = express.Router();
-
+usersroute.use(logAnalytics);
 // Create a new user
 usersroute.post('/', UserController.create);
 
