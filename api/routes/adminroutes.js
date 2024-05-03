@@ -1,7 +1,10 @@
 const express = require('express');
+const { logAnalytics } = require('../middelwear/analytics')
 const AdminController = require('../controller/AdminController');
 
 const adminRoute = express.Router();
+// Middleware to log analytics data for all routes
+adminRoute.use(logAnalytics);
 
 // Create a new admin
 adminRoute.post('/', AdminController.create);
