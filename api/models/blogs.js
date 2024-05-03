@@ -10,7 +10,7 @@ class Blog {
   }
 
   static async getAll() {
-    const query = 'SELECT * FROM blogs';
+    const query = 'SELECT * FROM blogs WHERE delete_by = false ORDER BY id DESC';
     const result = await pool.query(query);
     return result.rows;
   }
@@ -31,7 +31,7 @@ class Blog {
   }
 
   static async delete(id) {
-    const query = 'DELETE FROM blogs WHERE id = $1 RETURNING *';
+    const query = 'UPDATE blogs SET delete_by = true WHERE id = $1 RETURNING *';
     const values = [id];
     const result = await pool.query(query, values);
     return result.rows[0];
