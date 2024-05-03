@@ -1,7 +1,7 @@
 const pool = require('../db/db'); // Update the path as needed
-
+const moment = require('moment-timezone');
 async function logAnalytics(req, res, next) {
-  const now = new Date();
+  const now = moment().tz('Asia/Kolkata'); // Set the timezone here
   const analyticsData = {
     url: req.originalUrl,
     method: req.method,
@@ -11,8 +11,8 @@ async function logAnalytics(req, res, next) {
     ip: req.ip,
     protocol: req.protocol,
     path: req.path,
-    time: now.toLocaleTimeString(),
-    date: now.toLocaleDateString(),
+    time: now.format('hh:mm:ss A'), // Get current time
+    date: now.format('MM/DD/YYYY'), // Get current date
   };
 
   try {
