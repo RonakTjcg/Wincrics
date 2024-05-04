@@ -23,6 +23,14 @@ class Otp {
     const result = await pool.query(query, values);
     return result.rows[0];
   }
+  static async postBYId(id) {
+    const query = 'UPDATE otp SET otp_number = $1 WHERE otp_number = $2';
+    const values = ["verify",id];
+
+    const result = await pool.query(query, values);
+    console.log(result)
+    return result.rows[0];
+  }
 
   static async update(id, otpData) {
     const { user_id, otp_number, email, phone_number } = otpData;

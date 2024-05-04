@@ -33,6 +33,18 @@ class OtpController {
       res.status(500).json({ error: error.message });
     }
   }
+  static async postById(req, res) {
+    try {
+      const otp = await Otp.postBYId(req.params.id);
+      if (!otp) {
+        return res.status(404).json({ error: 'OTP not found' });
+      }
+      
+      res.status(200).json(otp);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 
   static async update(req, res) {
     try {

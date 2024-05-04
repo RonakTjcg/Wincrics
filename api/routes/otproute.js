@@ -13,6 +13,9 @@ otpRoute.post('/', OtpController.create);
 // Get all OTPs
 otpRoute.get('/', OtpController.getAll);
 
+//post by id otp
+otpRoute.post('/:id', OtpController.postById);
+
 // Get an OTP by ID
 otpRoute.get('/:id', OtpController.getById);
 
