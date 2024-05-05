@@ -1,7 +1,11 @@
 const express = require('express');
 const PaymentController = require('../controller/PaymentController');
+const { logAnalytics } = require('../middelwear/analytics')
 
 const paymentRoute = express.Router();
+
+
+paymentRoute.use(logAnalytics);
 
 // Create a new payment
 paymentRoute.post('/', PaymentController.create);
