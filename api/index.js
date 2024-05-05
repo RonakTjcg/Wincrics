@@ -3,6 +3,7 @@ const usersroute = require('./routes/usersroutes');
 const blogsRoute = require('./routes/blogsroutes');
 const adminroute = require('./routes/adminroutes')
 const paymentroute = require('./routes/paymentsroutes')
+const packagesRoute = require('./routes/packagesroute')
 const videoroute = require('./routes/videosroutes')
 
 
@@ -19,6 +20,7 @@ app.use('/payment',paymentroute)
 app.use('/analytics', analyticsRoute);
 app.use('/otp', otpRoute);
 app.use('/otpemail', otpemail);
+app.use('/packagess', packagesRoute)
 app.use('/videos',videoroute);
 
 const PORT = process.env.PORT || 3000;
