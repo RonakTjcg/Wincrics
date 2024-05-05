@@ -13,10 +13,11 @@ class Video {
   }
 
   static async getAll() {
-    const query = 'SELECT * FROM videos';
+    const query = 'SELECT * FROM videos ORDER BY id DESC '; 
     const result = await pool.query(query);
     return result.rows;
   }
+  
 
   static async getById(id) {
     const query = 'SELECT * FROM videos WHERE id = $1';
