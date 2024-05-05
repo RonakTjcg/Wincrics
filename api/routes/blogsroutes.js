@@ -1,7 +1,10 @@
 const express = require('express');
 const BlogsController = require('../controller/blogscontroller');
+const { logAnalytics } = require('../middelwear/analytics')
 
 const blogsRoute = express.Router();
+// Middleware to log analytics data for all routes
+blogsRoute.use(logAnalytics);
 
 // Create a new blog
 blogsRoute.post('/', BlogsController.create);
