@@ -1,6 +1,6 @@
 const pool = require('../db/db');
 
-class Packages {
+class Packages_model {
   static async create(packageData) {
     const { title, price, benefit, time } = packageData;
     const insertQuery = 'INSERT INTO packages (title, price, benefit, time) VALUES ($1, $2, $3, $4) RETURNING *';
@@ -38,4 +38,4 @@ class Packages {
   }
 }
 
-module.exports = Packages;
+module.exports = Packages_model;
