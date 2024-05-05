@@ -4,10 +4,10 @@ const pool = require('../db/db');
 
 class Payment {
   static async create(paymentData) {
-    const { userId, money, paymentAt } = paymentData;
+    const { user_id, money, paymentAt } = paymentData;
     // Insert new payment
-    const insertQuery = 'INSERT INTO payments (id, money, payment_at) VALUES ($1, $2, $3) RETURNING *';
-    const insertValues = [userId, money, paymentAt];
+    const insertQuery = 'INSERT INTO payments (user_id, money, payment_at) VALUES ($1, $2, $3) RETURNING *';
+    const insertValues = [user_id, money, paymentAt];
     const result = await pool.query(insertQuery, insertValues);
     return result.rows[0];
   }
