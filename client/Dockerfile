@@ -2,7 +2,7 @@
 FROM node:21.7.1
 
 # Set the working directory in the container
-WORKDIR /reactapp
+WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
@@ -15,8 +15,6 @@ COPY . .
 
 # Expose port 5000
 EXPOSE 5000
-
-WORKDIR /reactapp/client
 
 # Start the React app
 CMD ["npm", "start"]
