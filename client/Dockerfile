@@ -8,12 +8,14 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
+RUN npm install --global npm@latest
+RUN npm install react-scripts@latest -g --silent
 RUN npm install
 
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose port 5000
+# Expose port 3000 (assuming your React app runs on port 3000)
 EXPOSE 5000
 
 # Start the React app
