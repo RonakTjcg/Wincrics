@@ -4,7 +4,6 @@
   "description": "Wincrics\" is a cricket project offering insights into teams, matches, and predictions. It provides data analytics, match predictions, team rankings, player profiles, and historical data, enhancing the cricket experience for fans and enthusiasts",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "uttam jethva",
