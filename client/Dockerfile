@@ -21,4 +21,4 @@ ENV NODE_ENV=production
 ENV PORT=5000
 
 # Start the React app
-CMD ["npm", "start"]
+CMD ["npx", "scripts", "start", "--", "--host", "0.0.0.0"]
