@@ -16,9 +16,7 @@ COPY . .
 # Expose port 5000
 EXPOSE 5000
 
-# Set environment variables
-ENV NODE_ENV=production
-ENV PORT=5000
+WORKDIR /reactapp/client
 
 # Start the React app
-CMD ["npx", "scripts", "start", "--", "--host", "0.0.0.0"]
+CMD ["npm", "start"]
