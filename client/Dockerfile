@@ -2,7 +2,7 @@
 FROM node:21.7.1
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /reactapp
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
