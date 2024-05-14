@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 // console.log(process.env.JWT);
 function authenticateToken(req, res, next) {
   const token = req.headers['authorization'];
@@ -8,7 +9,7 @@ function authenticateToken(req, res, next) {
     return res.status(401).json({ message: 'Authorization header is missing' });
   }
 
-  jwt.verify(token, 'hiiiiamjethalal', (err, user) => {
+  jwt.verify(token, process.env.JWT, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid token' });
     }
