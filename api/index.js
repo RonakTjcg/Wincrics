@@ -5,6 +5,7 @@ const adminroute = require('./routes/adminroutes')
 const paymentroute = require('./routes/paymentsroutes')
 const packagesRoute = require('./routes/packagesroute')
 const videoroute = require('./routes/videosroutes')
+const adminLog = require('./routes/adminlogin')
 
 
 const analyticsRoute = require('./routes/analytics')
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use('/users', usersroute);
+app.use('/adminlogin',adminLog);
 app.use('/blogs', blogsRoute);
 app.use('/admin', adminroute);
 app.use('/payment',paymentroute)
