@@ -3,6 +3,7 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, Tooltip, IconButton
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -10,7 +11,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const sidebarItems = [
   { text: 'Home', icon: <HomeIcon />, path: '/' },
   { text: 'About', icon: <InfoIcon />, path: '/about' },
-  { text: 'Video', icon: <VideoLibraryIcon />, path: '/admin' }
+  { text: 'Video', icon: <VideoLibraryIcon />, path: '/AdminVideos' },
+  { text: 'AdminPackages', icon: <CreditCardIcon />, path: '/AdminPackages' }
 ];
 
 const Sidebar = () => {
