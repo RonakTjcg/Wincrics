@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const pool = require('../db/db');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 async function adminLogin(req, res) {
   const { emailOrMobile, password } = req.body;
@@ -27,7 +29,7 @@ async function adminLogin(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ id: admin.id, role: admin.role }, 'hiiiiamjethalal', {
+    const token = jwt.sign({ id: admin.id, role: admin.role }, process.env.JWT, {
       expiresIn: '24h' // Token expires in 24 hours
     });
 
