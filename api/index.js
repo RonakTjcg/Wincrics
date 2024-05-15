@@ -6,6 +6,7 @@ const paymentroute = require('./routes/paymentsroutes')
 const packagesRoute = require('./routes/packagesroute')
 const videoroute = require('./routes/videosroutes')
 const adminLog = require('./routes/adminlogin')
+const cors = require('cors');
 
 
 const analyticsRoute = require('./routes/analytics')
@@ -13,6 +14,7 @@ const otpRoute = require('./routes/otproute')
 const otpemail = require('./routes/otpemail')
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use('/users', usersroute);
 app.use('/adminlogin',adminLog);

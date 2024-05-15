@@ -1,7 +1,8 @@
 
 import './App.css';
 import { BrowserRouter, Route, Routes,  } from "react-router-dom";
-import Admin from './pages/Admin';
+import Admin from './pages/adminpages/Admin';
+import Video from './pages/adminpages/Video';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
 
      <BrowserRouter>
       <Routes>
-        <Route path= '/admin' element={<Admin /> } ></Route>
+        <Route path= '/admin' element={<Admin /> } >
+          <Route path='/admin' element={<Video></Video>}></Route>
+        </Route>
        
       </Routes>
       </BrowserRouter>
