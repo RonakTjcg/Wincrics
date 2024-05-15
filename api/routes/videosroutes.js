@@ -6,20 +6,20 @@ const { logAnalytics } = require('../middelwear/analytics');
 const videoRoute = express.Router();
 
 videoRoute.use(logAnalytics);
-
+videoRoute.use(authenticateToken);
 // Create a new video
-videoRoute.post('/',authenticateToken ,VideoController.create);
+videoRoute.post('/' ,VideoController.create);
 
 // Get all videos
-videoRoute.get('/', authenticateToken,VideoController.getAll);
+videoRoute.get('/',VideoController.getAll);
 
 // Get a video by ID
-videoRoute.get('/:id', authenticateToken,VideoController.getById);
+videoRoute.get('/:id',VideoController.getById);
 
 // Update a video by ID
-videoRoute.put('/:id', authenticateToken,VideoController.update);
+videoRoute.put('/:id',VideoController.update);
 
 // Delete a video by ID
-videoRoute.delete('/:id',authenticateToken, VideoController.delete);
+videoRoute.delete('/:id', VideoController.delete);
 
 module.exports = videoRoute;
